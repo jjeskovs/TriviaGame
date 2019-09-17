@@ -18,12 +18,9 @@
     // Creating on click event that will start the game and display the first question
     
     $("#start").on("click", function() {
-        
-        
         game();
-        
     });
-    
+        
     function game() {
         // This will display questions on the screen
         $("#start").hide()
@@ -41,7 +38,6 @@
         var userInput = $(this).attr("data-value");
         if (userInput === questions[questionNumber].correctAnswer) {
             correctAnswer++;
-            
             // clear()
             reset();
         } else {
@@ -51,11 +47,8 @@
             reset();
         }
     }); 
-        
-            
-                    
- 
-    // This function is responsible for the count 
+                  
+     // This function is responsible for the count 
     function count() {
         $("#clock").text("Time Left " +time);
         time--;
@@ -63,28 +56,25 @@
             reset();
         };
     }
-        
-    
-    
-        
-
+   
     function reset() {
         questionNumber++;
         clearInterval(intervalId);
-        count();
         time = 25;
-        $("#image-div").html("")
+        intervalId = setInterval(count, 1000);
+        // $("#image-div").html("")
         //clear();
         
         //console.log(questionNumber)
         if (questionNumber > questions.length - 1){
             console.log("will end here")
             endGame() 
-            
-    }  
-        game();
+        }  
+            game();
     }
+        
     function endGame () {
+        // debugger;
         clear()
         $("#clock").hide();
         $("#result").text("You have answered: " + correctAnswer + " questions correctly and you missed " + inccorectAnswers);
