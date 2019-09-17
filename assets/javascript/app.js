@@ -1,4 +1,6 @@
-            // List of global variables
+    
+    
+    // List of global variables
     var correctAnswer = 0;
     var inccorectAnswers = 0;
     var time = 25;
@@ -30,18 +32,18 @@
         if (userInput === questions[questionNumber].correctAnswer) {
             correctAnswer++;
             // clear()
-            showWinImg() 
+            // showWinImg() 
             reset();
-        
-            
-                    
         } else {
             inccorectAnswers++;
             // clear()
-            showLoserImg()
+            // showLoserImg()
             reset();
         }
     }); 
+        
+            
+                    
  
     // This function is responsible for the count 
     function count() {
@@ -52,30 +54,32 @@
         };
     }
         
-    function showWinImg(){
-        $("#clock").text("");
-        $("#question").text("");
-        $("#a").text("");
-        $("#b").text("");
-        $("#c").text("");
-        $("#d").text("");
-        $("#image-div").html("<img src='assets/images/won.gif'/>");
-        setTimeout("hide()", 50000);
-        console.log(this)
-    }
+    // function showWinImg(){
+    //     $("#clock").text("");
+    //     $("#question").text("");
+    //     $("#a").text("");
+    //     $("#b").text("");
+    //     $("#c").text("");
+    //     $("#d").text("");
+    //     $("#image-div").html("<img src='assets/images/won.gif'/>");
+    //     setTimeout(clear(), 50000);
+    //     console.log(this)
+    // }
     
-    function showLoserImg(){
-        $("#clock").text("");
-        $("#question").text("");
-        $("#a").text("");
-        $("#b").text("");
-        $("#c").text("");
-        $("#d").text("");
-        $("#image-div").html("<img src='assets/images/bummer.gif' />");
-        setTimeout(hide()), 50000;
-
+    // function showLoserImg(){
+    //     $("#clock").text("");
+    //     $("#question").text("");
+    //     $("#a").text("");
+    //     $("#b").text("");
+    //     $("#c").text("");
+    //     $("#d").text("");
+    //     setTimeout(function (){
+    //         $("#image-div").html("<img src='assets/images/bummer.gif' />");
+    //     }, 50000);
         
-    }
+    // }
+    
+        
 
     function reset() {
         questionNumber++;
@@ -84,10 +88,10 @@
         time = 25;
         $("#image-div").html("")
         //clear();
-
+        
         //console.log(questionNumber)
-    if (questionNumber > questions.length -1){
-        console.log("will end here")
+        if (questionNumber > questions.length - 1){
+            console.log("will end here")
         endGame() // still need to write it up. 
             
     }  
