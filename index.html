@@ -16,15 +16,19 @@
 
 </head>
 <body>
-    <header>Trivia Game!</header>
     <div id="wrapper">
-        <div>Time left:  <span id="timer"></span> </div>
+        <header>Trivia Game!</header>
+        <div id="clock">Time left:  <span id="timer"></span> </div>
         <div id="question">Question Goes Here?</div>
-        <div id="a" class="answers" data-value="a"></div>
-        <div id="b" class="answers" data-value="b"></div>
-        <div id="c" class="answers" data-value="c"></div>
-        <div id="d" class="answers" data-value="d"></div>
-        <div id="result">You Gussed Correct!!!</div>
+        
+        <div class="block">
+            <div id="a" class="answers" data-value="a"></div>
+            <div id="b" class="answers" data-value="b"></div>
+            <div id="c" class="answers" data-value="c"></div>
+            <div id="d" class="answers" data-value="d"></div>
+        </div>
+
+        <div id="result"></div>
         <div id="image-div"></div>
         <button id="start"> Start The Game</button>
         

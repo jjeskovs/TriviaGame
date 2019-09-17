@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 450px;
+    height: 450px;
+    margin: 50px auto 0;
+    background: beige;
+
+}
+header {
+    font-size: 65px;
+    font-family: cursive;
+    font-style: italic;
+    text-align: center;
+    padding: 25px;
+}
+
+#clock {
+    text-align: center;
+    margin: 25px;
+    padding: 25px;
+    font-size: 25px;
+}
+.block {
+    align-content: center;
+
+}

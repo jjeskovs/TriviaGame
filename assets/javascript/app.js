@@ -1,72 +1,111 @@
             // List of global variables
-            var correctAnswer = 0;
-            var inccorectAnswers = 0;
-            var time = 3;
-            var questionNumber = 0;
-            var intervalId;
+    var correctAnswer = 0;
+    var inccorectAnswers = 0;
+    var time = 25;
+    var questionNumber = 0;
+    var intervalId;
+    var result;
+        // Creating on click event that will start the game and display the first question
+            
+    $("#start").on("click", function() {
+        game();
+    
+    });
 
-            // Creating on click event that will start the game and display the first question
+    function game() {
+        // This will display questions on the screen
+        $("#start").hide()
+        $("#question").text(questions[questionNumber].question);
+        $("#a").text(questions[questionNumber].a);
+        $("#b").text(questions[questionNumber].b);
+        $("#c").text(questions[questionNumber].c);
+        $("#d").text(questions[questionNumber].d);
 
-            $("#start").on("click", function() {
-            game();
-            });
+        // Setting countdown
+         intervalId = setInterval(count, 1000);
+    }
+    
+    $(".answers").on("click", function() {
+        var userInput = $(this).attr("data-value");
+        if (userInput === questions[questionNumber].correctAnswer) {
+            correctAnswer++;
+            // clear()
+            showWinImg() 
+            reset();
+        
+            
+                    
+        } else {
+            inccorectAnswers++;
+            // clear()
+            showLoserImg()
+            reset();
+        }
+    }); 
+ 
+    // This function is responsible for the count 
+    function count() {
+        $("#timer").text(time);
+        time--;
+        if (time === 0) {
+            reset();
+        };
+    }
+        
+    function showWinImg(){
+        $("#clock").text("");
+        $("#question").text("");
+        $("#a").text("");
+        $("#b").text("");
+        $("#c").text("");
+        $("#d").text("");
+        $("#image-div").html("<img src='assets/images/won.gif'/>");
+        setTimeout("hide()", 50000);
+        console.log(this)
+    }
+    
+    function showLoserImg(){
+        $("#clock").text("");
+        $("#question").text("");
+        $("#a").text("");
+        $("#b").text("");
+        $("#c").text("");
+        $("#d").text("");
+        $("#image-div").html("<img src='assets/images/bummer.gif' />");
+        setTimeout(hide()), 50000;
 
-            function game() {
-            // This will display questions on the screen
-            $("#question").text(questions[questionNumber].question);
-            $("#a").text(questions[questionNumber].a);
-            $("#b").text(questions[questionNumber].b);
-            $("#c").text(questions[questionNumber].c);
-            $("#d").text(questions[questionNumber].d);
+        
+    }
 
-            // Setting countdown
-            intervalId = setInterval(count, 1000);
-            }
-            $(".answers").on("click", function() {
+    function reset() {
+        questionNumber++;
+        clearInterval(intervalId);
+        count();
+        time = 25;
+        $("#image-div").html("")
+        //clear();
+
+        //console.log(questionNumber)
+    if (questionNumber > questions.length -1){
+        console.log("will end here")
+        endGame() // still need to write it up. 
+            
+    }  
+        game();
+    }
+    function endGame () {
+        clearInterval(intervalId);
+        clear()
+        $("#results").text("You have answered correctly " + correctAnswer + "and incorecly " + inccorectAnswers);
+        $("#start").show()
+    }
                 
-            var userInput = $(this).attr("data-value");
-            if (userInput === questions[questionNumber].correctAnswer) {
-                correctAnswer++;
-                console.log("correct " + correctAnswer);
-                reset();
-            } else {
-                inccorectAnswers++;
-                console.log("Incorect " + inccorectAnswers)
-                reset();
+    function clear() {
+        $("#image-div").html("");
+
                 
-            }
-            // Score count
-            //questionNumber++; // posibly be inside of reset function
-            //     //$("#image-div").html("src", "assets/images/win.gif"); <-- need to add the timeer to keep it on the screen for 10sec
-            });
 
-            function count() {
-            time--;
-            $("#timer").text(time);
-            if (time === 0) {
-                reset();
-            }
-            }
-
-            function reset() {
-            clearInterval(intervalId);
-            $("#question").text("");
-            $("#a").text("");
-            $("#b").text("");
-            $("#c").text("");
-            $("#d").text("");
-            $("#image-div").html("");
-            questionNumber++;
-            console.log(questionNumber)
-            if (questionNumber > questions.length -1){
-                console.log("will end here")
-                endGame() // still need to write it up. 
-            }  
-            time = 3;
-            game();
-            }
-
-
+    }
 
             // Questions
             var questions = [
