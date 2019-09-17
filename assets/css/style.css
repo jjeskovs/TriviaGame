@@ -2,9 +2,19 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 25px;
+    background-image: url("../images/game.jpeg"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    
+}
 #wrapper {
-    width: 450px;
-    height: 450px;
+    width: 600px;
+    height: 550px;
     margin: 50px auto 0;
     background: beige;
 
@@ -24,6 +34,49 @@ header {
     font-size: 25px;
 }
 .block {
-    align-content: center;
+    text-align: center;
+    margin:10px;
+    font-size: 20px;
 
+}
+#start {
+    margin-left: 250px; 
+}
+#result {
+    font-size: 24;
+    text-align: center;
+    color: blueviolet;
+
+}
+
+button:hover {
+    background: pink;
+    border: 2px solid blue;
+  }
+  
+#question {
+    text-align: center;
+    height: 50px;
+    margin: 25px;
+   
+}
+  #a:hover {
+    margin:5px;
+    padding: 5px;
+    background: pink;
+}
+  #b:hover {
+    margin:5px;
+    padding: 5px;
+    background: pink;
+}
+  #c:hover {
+    margin:5px;
+    padding: 5px;
+    background: pink;
+}
+  #d:hover {
+    margin:5px;
+    padding: 5px;
+    background: pink;
 }
