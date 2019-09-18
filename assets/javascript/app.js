@@ -13,23 +13,27 @@
     
     //function to clear the image                                           <--------
     // function hideGif (){
-    //     setTimeout(reset, 5000);
+        setTimeout(reset, 5000);
     // }
     // Creating on click event that will start the game and display the first question
     
     $("#start").on("click", function() {
+        questionNumber = 0;
         game();
     });
         
     function game() {
         // This will display questions on the screen
-        $("#start").hide()
+        $("#start").hide();
+        $("#clock").show();
+        $("#result").text("");
         $("#question").text(questions[questionNumber].question);
         $("#a").text(questions[questionNumber].a);
         $("#b").text(questions[questionNumber].b);
         $("#c").text(questions[questionNumber].c);
         $("#d").text(questions[questionNumber].d);
         
+
         // Setting countdown
          intervalId = setInterval(count, 1000);
     }
@@ -61,7 +65,7 @@
         questionNumber++;
         clearInterval(intervalId);
         time = 25;
-        intervalId = setInterval(count, 1000);
+        
         // $("#image-div").html("")
         //clear();
         
@@ -69,8 +73,10 @@
         if (questionNumber > questions.length - 1){
             console.log("will end here")
             endGame() 
-        }  
+        }  else {
             game();
+        }
+
     }
         
     function endGame () {
